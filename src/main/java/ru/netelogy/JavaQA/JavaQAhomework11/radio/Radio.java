@@ -1,6 +1,9 @@
+package ru.netelogy.JavaQA.JavaQAhomework11.radio;
+
 public class Radio {
     private int numberOfTheCurrentRadioStation = 0;
     private int volumeOfTheSound = 0;
+
 
     public void next() {
         numberOfTheCurrentRadioStation = numberOfTheCurrentRadioStation < 9 ? ++numberOfTheCurrentRadioStation : 0;
