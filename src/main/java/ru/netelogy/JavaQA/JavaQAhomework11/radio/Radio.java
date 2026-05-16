@@ -1,18 +1,44 @@
 package ru.netelogy.JavaQA.JavaQAhomework11.radio;
 
 public class Radio {
-    private int firstStation = 0;
-    private int lastStation = 9;
-    private int numberOfTheCurrentRadioStation = firstStation;
-    private int volumeOfTheSound = 0;
-    private int minimumVolumeOfTheSound = 0;
-    private int maximumVolumeOfTheSound = 100;
+    private int firstStation;
+    private int lastStation;
+    private int numberOfTheCurrentRadioStation;
+    private int volumeOfTheSound;
+    private int minimumVolumeOfTheSound;
+    private int maximumVolumeOfTheSound;
 
-    public Radio() {
+    public Radio(int firstStation, int lastStation, int minimumVolumeOfTheSound, int maximumVolumeOfTheSound) {
+        this.firstStation = firstStation;
+        this.lastStation = lastStation;
+        this.numberOfTheCurrentRadioStation = firstStation;
+        this.volumeOfTheSound = minimumVolumeOfTheSound;
+        this.minimumVolumeOfTheSound = minimumVolumeOfTheSound;
+        this.maximumVolumeOfTheSound = maximumVolumeOfTheSound;
     }
 
-    public Radio(int stationsThatTheRadioPicksUpn) {
-        lastStation = firstStation + stationsThatTheRadioPicksUpn - 1;
+    public void setNumberOfTheCurrentRadioStation(int numberOfTheCurrentRadioStation) {
+        if (numberOfTheCurrentRadioStation >= firstStation && numberOfTheCurrentRadioStation < lastStation +1) {
+            this.numberOfTheCurrentRadioStation = numberOfTheCurrentRadioStation;
+        } else  {
+            this.numberOfTheCurrentRadioStation = 0;
+        }
+    }
+
+    public void setVolumeOfTheSound(int volumeOfTheSound) {
+        if (volumeOfTheSound >= minimumVolumeOfTheSound && volumeOfTheSound < maximumVolumeOfTheSound +1) {
+            this.volumeOfTheSound = volumeOfTheSound;
+        } else  {
+            this.volumeOfTheSound = 0;
+        }
+    }
+
+    public int getNumberOfTheCurrentRadioStation() {
+        return numberOfTheCurrentRadioStation;
+    }
+
+    public int getVolumeOfTheSound() {
+        return volumeOfTheSound;
     }
 
     public void next() {
@@ -23,14 +49,6 @@ public class Radio {
         numberOfTheCurrentRadioStation = numberOfTheCurrentRadioStation > firstStation ? --numberOfTheCurrentRadioStation : lastStation;
     }
 
-    public void setNumberOfRadioStation(int numberOfRadioStation) {
-        numberOfTheCurrentRadioStation = numberOfRadioStation >= firstStation && numberOfRadioStation < lastStation + 1 ? numberOfRadioStation : numberOfTheCurrentRadioStation;
-    }
-
-    public int getNumberOfRadioStation() {
-        return numberOfTheCurrentRadioStation;
-    }
-
     public void volumeUp() {
         volumeOfTheSound = volumeOfTheSound < maximumVolumeOfTheSound ? ++volumeOfTheSound : maximumVolumeOfTheSound;
     }
@@ -39,11 +57,4 @@ public class Radio {
         volumeOfTheSound = volumeOfTheSound > minimumVolumeOfTheSound ? --volumeOfTheSound : minimumVolumeOfTheSound;
     }
 
-    public void setVolumeOfTheSound(int volume) {
-        volumeOfTheSound = volume >= minimumVolumeOfTheSound && volume < maximumVolumeOfTheSound + 1 ? volume : volumeOfTheSound;
-    }
-
-    public int getVolumeOfTheSound() {
-        return volumeOfTheSound;
-    }
 }

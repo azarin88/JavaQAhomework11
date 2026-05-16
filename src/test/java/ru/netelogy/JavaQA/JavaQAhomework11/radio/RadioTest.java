@@ -10,42 +10,42 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DataTestsForSetNumberOfRadioStation")
-    void TestSetNumberOfRadioStation(int flexibleRadio, int radioStation, int expected) {
-        Radio radio = new Radio(flexibleRadio);
-        radio.setNumberOfRadioStation(radioStation);
-        Assertions.assertEquals(radio.getNumberOfRadioStation(), expected);
+    void TestSetNumberOfRadioStation(int radioStation, int expected) {
+        Radio radio = new Radio(0, 9, 0, 100);
+        radio.setNumberOfTheCurrentRadioStation(radioStation);
+        Assertions.assertEquals(radio.getNumberOfTheCurrentRadioStation(), expected);
     }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DataTestsForNext")
-    void positiveTestNext(int flexibleRadio, int radioStation, int expected) {
-        Radio radio = new Radio(flexibleRadio);
-        radio.setNumberOfRadioStation(radioStation);
+    void positiveTestNext(int radioStation, int expected) {
+        Radio radio = new Radio(0, 9, 0, 100);
+        radio.setNumberOfTheCurrentRadioStation(radioStation);
         radio.next();
-        Assertions.assertEquals(radio.getNumberOfRadioStation(), expected);
+        Assertions.assertEquals(radio.getNumberOfTheCurrentRadioStation(), expected);
     }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DataTestsForPrev")
-    void positiveTestPrev(int flexibleRadio, int radioStation, int expected) {
-        Radio radio = new Radio(flexibleRadio);
-        radio.setNumberOfRadioStation(radioStation);
+    void positiveTestPrev(int radioStation, int expected) {
+        Radio radio = new Radio(0, 9, 0, 100);
+        radio.setNumberOfTheCurrentRadioStation(radioStation);
         radio.prev();
-        Assertions.assertEquals(radio.getNumberOfRadioStation(), expected);
+        Assertions.assertEquals(radio.getNumberOfTheCurrentRadioStation(), expected);
     }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DataTestsForSetVolumeOfTheSound")
-    void TestSetVolumeOfTheSound(int flexibleRadio, int volume, int expected) {
-        Radio radio = new Radio(flexibleRadio);
+    void TestSetVolumeOfTheSound(int volume, int expected) {
+        Radio radio = new Radio(0, 9, 0, 100);
         radio.setVolumeOfTheSound(volume);
         Assertions.assertEquals(radio.getVolumeOfTheSound(), expected);
     }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DataTestsForVolumeUp")
-    void positiveTestVolumeUp(int flexibleRadio, int volume, int expected) {
-        Radio radio = new Radio(flexibleRadio);
+    void positiveTestVolumeUp(int volume, int expected) {
+        Radio radio = new Radio(0, 9, 0, 100);
         radio.setVolumeOfTheSound(volume);
         radio.volumeUp();
         Assertions.assertEquals(radio.getVolumeOfTheSound(), expected);
@@ -53,8 +53,8 @@ public class RadioTest {
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DataTestsForVolumeDown")
-    void positiveTestVolumeDown(int flexibleRadio, int volume, int expected) {
-        Radio radio = new Radio(flexibleRadio);
+    void positiveTestVolumeDown(int volume, int expected) {
+        Radio radio = new Radio(0, 9, 0, 100);
         radio.setVolumeOfTheSound(volume);
         radio.volumeDown();
         Assertions.assertEquals(radio.getVolumeOfTheSound(), expected);
