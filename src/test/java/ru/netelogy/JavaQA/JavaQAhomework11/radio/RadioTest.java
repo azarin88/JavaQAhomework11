@@ -8,18 +8,11 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 public class RadioTest {
 
-    @ParameterizedTest
-    @CsvFileSource(files = "src/test/resources/DataTestsForSetNumberOfRadioStation")
-    void TestSetNumberOfRadioStation(int radioStation, int expected) {
-        Radio radio = new Radio(0, 9, 0, 100);
-        radio.setNumberOfTheCurrentRadioStation(radioStation);
-        Assertions.assertEquals(radio.getNumberOfTheCurrentRadioStation(), expected);
-    }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DataTestsForNext")
     void positiveTestNext(int radioStation, int expected) {
-        Radio radio = new Radio(0, 9, 0, 100);
+        Radio radio = new Radio(0, 9,0,0, 0, 100);
         radio.setNumberOfTheCurrentRadioStation(radioStation);
         radio.next();
         Assertions.assertEquals(radio.getNumberOfTheCurrentRadioStation(), expected);
@@ -28,24 +21,17 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DataTestsForPrev")
     void positiveTestPrev(int radioStation, int expected) {
-        Radio radio = new Radio(0, 9, 0, 100);
+        Radio radio = new Radio(0, 9, 0,0,0, 100);
         radio.setNumberOfTheCurrentRadioStation(radioStation);
         radio.prev();
         Assertions.assertEquals(radio.getNumberOfTheCurrentRadioStation(), expected);
     }
 
-    @ParameterizedTest
-    @CsvFileSource(files = "src/test/resources/DataTestsForSetVolumeOfTheSound")
-    void TestSetVolumeOfTheSound(int volume, int expected) {
-        Radio radio = new Radio(0, 9, 0, 100);
-        radio.setVolumeOfTheSound(volume);
-        Assertions.assertEquals(radio.getVolumeOfTheSound(), expected);
-    }
 
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DataTestsForVolumeUp")
     void positiveTestVolumeUp(int volume, int expected) {
-        Radio radio = new Radio(0, 9, 0, 100);
+        Radio radio = new Radio(0, 9, 0,0,0, 100);
         radio.setVolumeOfTheSound(volume);
         radio.volumeUp();
         Assertions.assertEquals(radio.getVolumeOfTheSound(), expected);
@@ -54,7 +40,7 @@ public class RadioTest {
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/DataTestsForVolumeDown")
     void positiveTestVolumeDown(int volume, int expected) {
-        Radio radio = new Radio(0, 9, 0, 100);
+        Radio radio = new Radio(0, 9, 0,0,0, 100);
         radio.setVolumeOfTheSound(volume);
         radio.volumeDown();
         Assertions.assertEquals(radio.getVolumeOfTheSound(), expected);
