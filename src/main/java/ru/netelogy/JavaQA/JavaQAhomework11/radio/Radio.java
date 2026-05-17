@@ -17,7 +17,7 @@ public class Radio {
 
 
     public void next() {
-        numberOfTheCurrentRadioStation = numberOfTheCurrentRadioStation < lastStation ? ++numberOfTheCurrentRadioStation : 0;
+        numberOfTheCurrentRadioStation = numberOfTheCurrentRadioStation < lastStation ? ++numberOfTheCurrentRadioStation : firstStation;
     }
 
     public void prev() {
