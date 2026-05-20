@@ -16,6 +16,19 @@ public class Radio {
     private int maximumVolumeOfTheSound;
 
 
+
+
+    public void setNumberOfRadioStation(int numberOfRadioStation) {
+        numberOfTheCurrentRadioStation = numberOfRadioStation >= firstStation && numberOfRadioStation < lastStation + 1 ? numberOfRadioStation : numberOfTheCurrentRadioStation;
+    }
+
+    public void setVolumeOfTheSound(int volume) {
+        volumeOfTheSound = volume >= minimumVolumeOfTheSound && volume < maximumVolumeOfTheSound + 1 ? volume : volumeOfTheSound;
+    }
+
+
+
+
     public void next() {
         numberOfTheCurrentRadioStation = numberOfTheCurrentRadioStation < lastStation ? ++numberOfTheCurrentRadioStation : firstStation;
     }
